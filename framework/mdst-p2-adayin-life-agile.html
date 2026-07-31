@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Day in the Life: Real-World Discovery</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+        background-color: #f8fafc;
+      }
+
+      /* Page Header */
+      .page-header {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+        border-top: 4px solid #7e22ce; /* Phase 2 Purple */
+      }
+      .page-header h1 {
+        font-size: 2rem;
+        color: #1a1f36;
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .page-header p {
+        color: #4a5568;
+        font-size: 1.05rem;
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      /* Content Sections */
+      .section-container {
+        background-color: #ffffff;
+        padding: 35px;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+      }
+      h2 {
+        font-size: 1.5rem;
+        color: #1a1f36;
+        border-bottom: 2px solid #f1f5f9;
+        padding-bottom: 10px;
+        margin-top: 0;
+      }
+      h3 {
+        font-size: 1.2rem;
+        color: #0f766e;
+        margin-top: 25px;
+        margin-bottom: 15px;
+      }
+      p,
+      li {
+        font-size: 1rem;
+        color: #4a5568;
+        line-height: 1.6;
+      }
+
+      /* Callouts */
+      .callout {
+        background-color: #f3e8ff;
+        border-left: 4px solid #9333ea;
+        padding: 15px 20px;
+        margin: 20px 0;
+        border-radius: 0 4px 4px 0;
+      }
+      .callout p {
+        margin: 0;
+        color: #581c87;
+        font-weight: 500;
+      }
+
+      .warning-callout {
+        background-color: #fee2e2;
+        border-left: 4px solid #dc2626;
+        padding: 15px 20px;
+        margin: 20px 0;
+        border-radius: 0 4px 4px 0;
+      }
+      .warning-callout p {
+        margin: 0;
+        color: #991b1b;
+        font-weight: 500;
+      }
+
+      /* Tables */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #ffffff;
+      }
+      th {
+        background-color: #f8fafc;
+        color: #1a1f36;
+        font-weight: 700;
+        text-align: left;
+        padding: 15px;
+        border: 1px solid #e2e8f0;
+        font-size: 0.95rem;
+      }
+      td {
+        padding: 15px;
+        border: 1px solid #e2e8f0;
+        color: #4a5568;
+        vertical-align: top;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .code-term {
+        background-color: #f1f5f9;
+        color: #0369a1;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: monospace;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>A Day in the Life: Real-World Discovery</h1>
+      <p>Managing the Chaos: Bridging SME Workshops into Agile Execution</p>
+    </header>
+
+    <div class="warning-callout">
+      <p>
+        The idea that Discovery is a neat, chronological march from "As-Is" to
+        "To-Be" to "Gap Analysis" is a theoretical fallacy. In the real world,
+        SMEs may not separate their current pain from their future desires.
+      </p>
+    </div>
+
+    <section class="section-container">
+      <h2>1. The In-the-Room "Micro-Cycle"</h2>
+      <p>
+        When you ask SMEs about how they handle a midterm amendment today (the
+        As-Is), they will immediately complain about manual credit memos and
+        jump straight into how they want it automated tomorrow (the To-Be)[cite:
+        5]. As an architect, when they ask,
+        <em>"Well, how does the system handle this?"</em>, they are forcing a
+        real-time Gap Analysis—the "pre-gap".
+      </p>
+      <p>
+        Instead of fighting this, organize your sessions by "Commercial Thread,"
+        not by phase. Guide the SMEs through a continuous loop for every
+        specific capability in a 10-minute window:
+      </p>
+      <ul>
+        <li>
+          <strong>The Pain (As-Is):</strong> "We currently use three
+          spreadsheets to calculate proration".
+        </li>
+        <li>
+          <strong>The Intent (To-Be):</strong> "We need the system to just do
+          the math automatically when a rep changes the quantity".
+        </li>
+        <li>
+          <strong>The Pre-Gap (Platform Steering):</strong> "Revenue Cloud
+          handles this out-of-the-box using the standard Pricing Procedure and
+          Assetization rules, provided we standardize your service periods. Are
+          you open to adopting the standard platform calculation?"
+        </li>
+      </ul>
+
+      <h3>Platform-Guided Business Design</h3>
+      <p>
+        When business leaders ask for options, they are inviting you to shape
+        their To-Be state to fit standard Salesforce architecture. If their
+        To-Be aligns with standard functionality, you confirm it immediately. If
+        it requires heavy customization, you use the pre-gap to challenge them:
+        <em
+          >"We can build that custom logic, but if we adjust your process
+          slightly to fit the standard Product Selling Model, you save 200 hours
+          of development..."</em
+        >.
+      </p>
+    </section>
+
+    <section class="section-container">
+      <h2>2. The Unified Discovery Matrix</h2>
+      <p>
+        Because the conversation happens all at once, your documentation must
+        capture it all at once. Ditch separate documents and use a unified
+        matrix that captures the past, present, and the platform-specific future
+        in a single row.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 15%">Commercial Process</th>
+            <th style="width: 20%">Current State (The Pain)</th>
+            <th style="width: 20%">Business Intent (To-Be Goal)</th>
+            <th style="width: 25%">
+              RLM Platform Recommendation (Pre-Gap Steering)
+            </th>
+            <th style="width: 20%">Architectural Gap / Risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Mid-Term Add-On (Amendments)</strong></td>
+            <td>
+              Sales reps manually calculate prorated amounts for new seats on a
+              spreadsheet and submit a separate $0 order for tracking.
+            </td>
+            <td>
+              System should automatically calculate the exact prorated cost for
+              new seats based on the days remaining in the existing contract.
+            </td>
+            <td>
+              Adopt the standard
+              <span class="code-term">ProductSellingModel</span> (Termed) and
+              flag the product as "Asset-trackable". RLM's Asset Lifecycle
+              engine will handle the co-termination and generate prorated Quote
+              Lines.
+            </td>
+            <td>
+              <strong>Low Gap, High Data Risk:</strong> RLM handles this
+              natively, but we must ensure legacy contract data is migrated
+              accurately into the new
+              <span class="code-term">AssetStatePeriod</span> object to serve as
+              the baseline.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Renewal Uplift Pricing</strong></td>
+            <td>
+              Finance applies a flat 5% uplift at renewal, but reps often
+              override this manually or forget to apply it entirely.
+            </td>
+            <td>
+              Automate a standard 5% price increase on all recurring software
+              renewals, with manager approval required for overrides.
+            </td>
+            <td>
+              Configure the <span class="code-term">PricingProcedure</span> to
+              look up a Renewal Uplift attribute. The standard Price Waterfall
+              will calculate the Net Price automatically during the
+              system-generated Renewal Quote.
+            </td>
+            <td>
+              <strong>Process Gap:</strong> Business must agree to standardize
+              the 5% rule across the catalog. Custom override logic will require
+              a new step in the Pricing Procedure.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Hardware + SaaS Bundling</strong></td>
+            <td>
+              Hardware is quoted in an ERP, while SaaS is quoted in CRM.
+              Invoices are dispatched separately, causing customer confusion.
+            </td>
+            <td>
+              Reps need to sell the physical sensor and the 12-month software
+              subscription on the same quote and dispatch to billing together.
+            </td>
+            <td>
+              Utilize Product Discovery to configure a bundle containing a
+              One-Time PSM (Hardware) and a Termed PSM (SaaS). Both will flow
+              through the same Quote-to-Order "Steel Thread" into a unified
+              <span class="code-term">SalesOrder</span>.
+            </td>
+            <td>
+              <strong>Medium Gap:</strong> RLM easily handles mixed PSMs, but
+              the external Billing Schedule integration (ERP) must be prepared
+              to split the revenue recognition based on the different PSMs[cite:
+              5].
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <p>
+          <strong>Why this format wins:</strong> It stops the "Customization
+          Default" by anchoring the conversation in standard platform engines
+          immediately. It exposes the real data/process risks rather than just
+          asking "can the platform do it?". Most importantly, every row feeds
+          directly into your Agile backlog as an End-to-End Revenue Thread Epic.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-container">
+      <h2>3. Bridging to Execution: The RTM to Agile Mapping Framework</h2>
+      <p>
+        Compiling the L1-L3 list before Discovery is exactly how you lock down
+        the project scope. Here is exactly how you bridge that Process Catalog
+        into standard Jira/Agile issue types to maintain your architectural
+        control while keeping the Agile team moving horizontally.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 25%">RTM Hierarchy (Architecture)</th>
+            <th style="width: 25%">Agile/Jira Type (Delivery)</th>
+            <th style="width: 50%">Purpose & RLM Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>L1: Value Stream</strong></td>
+            <td><strong>Initiative</strong></td>
+            <td>
+              <strong>The massive, end-to-end lifecycle.</strong> Example:
+              Quote-to-Cash (QTC).
+            </td>
+          </tr>
+          <tr>
+            <td><strong>L2: Process Area</strong></td>
+            <td><strong>Component / Theme</strong></td>
+            <td>
+              <strong>The major buckets within the Value Stream.</strong> Used
+              for reporting and filtering. Example: Product Configuration,
+              Pricing.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>L3: Specific Process</strong></td>
+            <td><strong>Epic</strong></td>
+            <td>
+              <strong>The actual task to be accomplished.</strong> This groups
+              the commercial threads. Example: Subscription Amendments or Event
+              Quoting.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>L4: The Commercial Thread</strong></td>
+            <td><strong>User Story</strong></td>
+            <td>
+              <strong>The "Transaction-Based" narrative.</strong> Defines how
+              the capability is executed. Example: "As a Rep, I need to co-term
+              a mid-year SaaS add-on so that the Proration Rule accurately feeds
+              the Sales Order".
+            </td>
+          </tr>
+          <tr>
+            <td><strong>L5: Architectural Gap / Risk</strong></td>
+            <td><strong>Acceptance Criteria (DoD)</strong></td>
+            <td>
+              The rules that prove the User Story survives the transaction.
+              Example: "Quote Line successfully converts to an
+              AssetStatePeriod".
+            </td>
+          </tr>
+          <tr>
+            <td><strong>L6: Technical Build Task</strong></td>
+            <td><strong>Sub-Task</strong></td>
+            <td>
+              The specific administrative actions assigned to developers.
+              Example: "Configure ProductSellingModel record".
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Why L3 as the "Epic" is Your Best Tool</h3>
+      <p>
+        By making the L3 Process Catalog item the Jira Epic, business
+        stakeholders see Epics named exactly what they asked for during kickoff.
+        However, underneath that L3 Epic, you and the Scrum Master populate the
+        L4 User Stories strictly as Commercial Threads (Horizontal Progress),
+        not isolated objects (Vertical Progress)[cite: 5].
+      </p>
+      <ul>
+        <li>
+          <strong>Story 1:</strong> Standard hardware vendor onboarding flow
+          (from catalog to ERP).
+        </li>
+        <li>
+          <strong>Story 2:</strong> Complex software vendor onboarding flow
+          (with termed revenue schedules).
+        </li>
+      </ul>
+      <p>
+        This satisfies the Scrum Master's need for actionable tickets while
+        guaranteeing the CPQ and Billing engines are configured sequentially.
+      </p>
+    </section>
+
+    <section class="section-container">
+      <h2>4. The Architect's "Cheat Sheet" for BAs</h2>
+      <p>
+        Your Business Analysts (BAs) need to write Acceptance Criteria (L5) that
+        actively prevent developers from slipping back into bad habits. Here are
+        the rules to mandate Revenue Cloud best practices:
+      </p>
+
+      <ul>
+        <li>
+          <strong>1. The "No Dead Ends" Rule (Mandate the Transaction):</strong>
+          A developer cannot write a story to simply "create a product field".
+          <br /><em>Bad AC:</em> "The 'Hardware Type' field is visible on the
+          Product record". <br /><em>RLM-Ready AC:</em>
+          "The 'Hardware Type' field is visible on the Product record AND
+          correctly maps to the Quote Line Item when added to a Standard Quote".
+        </li>
+        <li style="margin-top: 15px">
+          <strong>2. The "Engine Callout" Rule (Name the Component):</strong>
+          BAs must specifically name the RLM component that handles the math
+          logic. <br /><em>Bad AC:</em> "The system should apply a 10% discount
+          for volume". <br /><em>RLM-Ready AC:</em> "The Pricing Procedure
+          evaluates the volume quantity and correctly generates the Net Price on
+          the Price Waterfall".
+        </li>
+        <li style="margin-top: 15px">
+          <strong>3. The "Downstream Proof" Rule (The Lifecycle Check):</strong>
+          Every subscription story must prove it can survive beyond the initial
+          sale to prevent the "Siloed Sprint" trap. <br /><em>Bad AC:</em> "The
+          user can sell a 12-month software license". <br /><em
+            >RLM-Ready AC:</em
+          >
+          "The 12-month software license successfully converts from a Sales
+          Order into an Asset-trackable record with the correct start and end
+          dates for future renewals".
+        </li>
+      </ul>
+
+      <div class="callout">
+        <p>
+          <strong>Empowering the BA:</strong> By giving your BAs this framework,
+          they become the gatekeepers. If a BA writes a story that doesn't push
+          data through to an Order or Asset, the Scrum Master will kick it back
+          during backlog refinement because it fails the Definition of Ready.
+        </p>
+      </div>
+    </section>
+  </body>
+</html>

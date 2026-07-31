@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RLM Executive Diagnostic Guide</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+        background-color: #f8fafc;
+      }
+
+      /* Navigation Menu with Blue Button */
+      .nav-menu {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 12px 20px;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        margin-bottom: 20px;
+      }
+      .nav-btn {
+        background-color: #0284c7;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: background-color 0.2s;
+      }
+      .nav-btn:hover {
+        background-color: #0369a1;
+      }
+
+      /* Page Header */
+      .page-header {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+        border-top: 4px solid #007eb5;
+      }
+      .page-header h1 {
+        font-size: 2rem;
+        color: #1a1f36;
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .page-header p {
+        color: #4a5568;
+        font-size: 1.05rem;
+        margin: 0;
+      }
+
+      /* Callouts */
+      .callout {
+        background-color: #f0fdf4;
+        border-left: 4px solid #16a34a;
+        padding: 15px 20px;
+        margin: 20px 0;
+        border-radius: 0 4px 4px 0;
+      }
+      .callout p {
+        margin: 0;
+        color: #166534;
+        font-size: 0.95rem;
+      }
+
+      /* Section Cards */
+      .section-container {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+      }
+      h2 {
+        font-size: 1.4rem;
+        color: #1a1f36;
+        border-bottom: 2px solid #f1f5f9;
+        padding-bottom: 10px;
+        margin-top: 0;
+      }
+      h3 {
+        font-size: 1.1rem;
+        color: #007eb5;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      /* Form Elements */
+      label {
+        display: block;
+        margin-top: 15px;
+        font-weight: 600;
+        color: #1a1f36;
+        font-size: 0.95rem;
+      }
+      .help-text {
+        font-size: 0.85rem;
+        color: #64748b;
+        margin-bottom: 15px;
+        display: block;
+      }
+      input[type="number"],
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 10px 12px;
+        margin-top: 5px;
+        border-radius: 6px;
+        border: 1px solid #cbd5e1;
+        box-sizing: border-box;
+        font-family: inherit;
+        background-color: #f8fafc;
+        transition: border-color 0.2s;
+      }
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #007eb5;
+        background-color: #ffffff;
+      }
+
+      /* Grid Layouts for smaller inputs */
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .rating-row {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-top: 10px;
+        background: #f8fafc;
+        padding: 12px 15px;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+      }
+      .rating-row label {
+        margin-top: 0;
+        flex: 1;
+        font-weight: 500;
+        color: #334155;
+      }
+      .rating-row input[type="number"] {
+        width: 80px;
+        margin-top: 0;
+        background-color: #ffffff;
+      }
+
+      /* Special Highlight for L0 Section */
+      .l0-highlight {
+        background-color: #e1f0fa;
+        border-left: 4px solid #007eb5;
+      }
+      .l0-highlight h2 {
+        border-bottom-color: #bae6fd;
+      }
+
+      /* Matrix Table Styles */
+      .matrix-container {
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-top: 20px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+      }
+      th,
+      td {
+        padding: 1rem 1.25rem;
+        border-bottom: 1px solid #cbd5e1;
+      }
+      th {
+        background-color: #f1f5f9;
+        font-weight: 600;
+        color: #0f172a;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      tr:nth-child(even) {
+        background-color: #f8fafc;
+      }
+      .l0-tag {
+        display: inline-block;
+        background-color: #0284c7;
+        color: white;
+        padding: 0.2rem 0.6rem;
+        border-radius: 9999px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+      .domain-tag {
+        display: inline-block;
+        background-color: #7c3aed;
+        color: white;
+        padding: 0.2rem 0.6rem;
+        border-radius: 9999px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+      .pain-text {
+        font-style: italic;
+        color: #475569;
+      }
+      .impact-text {
+        font-weight: 500;
+        color: #b91c1c;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Menu with Blue Button -->
+    <nav class="nav-menu">
+      <a href="#" class="nav-btn">Export Diagnostic Matrix</a>
+    </nav>
+
+    <header class="page-header">
+      <h1>RLM Diagnostics By Sales Model</h1>
+      <p>Example questions: Identify Big Issues & Process Gaps</p>
+    </header>
+
+    <div class="callout">
+      <p>
+        <strong>Architect's Note:</strong> Use this tool internally during
+        executive workshops to guide the conversation. Scroll to the specific
+        sales models relevant to the client to prompt targeted diagnostic
+        questions on Fulfillment, Revenue Risk, and Change Management.
+      </p>
+    </div>
+
+    <form id="rlmWorksheet">
+      <!-- CONTEXT SECTION -->
+      <section class="section-container">
+        <h2>General Deal Context & Strategic Intent</h2>
+        <p class="help-text">
+          Establish the baseline context and urgency of the revenue streams we
+          are diagnosing today.
+        </p>
+
+        <div class="grid-2">
+          <div>
+            <label>Expected Deal / Impact Size (USD)</label>
+            <input
+              type="number"
+              id="dealSize"
+              min="0"
+              step="1000"
+              placeholder="Enter target amount"
+            />
+          </div>
+          <div>
+            <label>Urgency / Timeline (weeks)</label>
+            <input
+              type="number"
+              id="timeline"
+              min="1"
+              max="52"
+              placeholder="e.g., 12"
+            />
+          </div>
+        </div>
+
+        <label>Strategic Notes / Context</label>
+        <textarea
+          id="salesNotes"
+          rows="3"
+          placeholder="Add executive goals, primary intent (e.g., Upsell, New Business), or market context here..."
+        ></textarea>
+      </section>
+
+      <!-- THE L0 ORIGIN POINT -->
+      <section class="section-container l0-highlight">
+        <h2>Establishing the L0 Baseline (Where the Game Starts)</h2>
+        <p>
+          This is where the architectural game begins. We do not start by asking
+          clients about Salesforce objects; we ask them how they make money. By
+          diagnosing their pain points across these fundamental
+          <strong>L0 Sales Models</strong> (One-Time, Subscription, Usage,
+          Milestone), we establish the foundation to later carve out the
+          specific <strong>L1 Commercial Threads</strong> that will become the
+          structural backbone of the entire RLM implementation.
+        </p>
+
+        <div class="matrix-container">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 10%">Tracker</th>
+                <th style="width: 15%">L0 Sales Model</th>
+                <th style="width: 15%">Lifecycle Domain</th>
+                <th style="width: 30%">The Executive Pain (The Noise)</th>
+                <th style="width: 30%">Business Impact / KPI at Risk</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>o1</td>
+                <td><span class="l0-tag">One-Time</span></td>
+                <td><span class="domain-tag">Fulfill</span></td>
+                <td class="pain-text">
+                  "Physical hardware delivery is delayed, but we are already
+                  billing the customer, causing massive disputes."
+                </td>
+                <td class="impact-text">
+                  Poor Customer Experience (CX) / High Dispute Rate
+                </td>
+              </tr>
+              <tr>
+                <td>s1</td>
+                <td><span class="l0-tag">Subscription</span></td>
+                <td><span class="domain-tag">Quote / Renew</span></td>
+                <td class="pain-text">
+                  "Reps are overriding standard discounts on renewals to save
+                  deals, and Finance is finding out too late."
+                </td>
+                <td class="impact-text">
+                  Gross Margin Erosion / Delayed Contract Cycle Time
+                </td>
+              </tr>
+              <tr>
+                <td>s2</td>
+                <td><span class="l0-tag">Subscription</span></td>
+                <td><span class="domain-tag">Quote</span></td>
+                <td class="pain-text">
+                  "Upgrades mid-year require us to cancel the old contract and
+                  write a brand new one manually."
+                </td>
+                <td class="impact-text">
+                  Net Revenue Retention (NRR) / High Admin Overhead
+                </td>
+              </tr>
+              <tr>
+                <td>u1</td>
+                <td><span class="l0-tag">Usage-Based</span></td>
+                <td><span class="domain-tag">Bill</span></td>
+                <td class="pain-text">
+                  "We are under-billing for consumption overages because the
+                  mediation data never syncs with the invoice on time."
+                </td>
+                <td class="impact-text">
+                  10% Revenue Leakage / ASC 606 Audit Risk
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Example question header  -->
+      <section class="section-container">
+        <h2>Example Quesionnaire Based on Sales Type</h2>
+        <p class="help-text">
+          Example Quesionnaire to build to start the discussion instead of balnk
+          page. Target is to complete the L0 Matrix by end of this excersize.
+        </p>
+      </section>
+
+      <!-- ONE-TIME PRODUCTS -->
+      <section class="section-container">
+        <h2>1. One-Time Products / Services</h2>
+
+        <h3>Quote & Configuration (The Pitch)</h3>
+        <div class="rating-row">
+          <label
+            >How effectively can reps configure, bundle, and price one-time
+            goods without manual margin approvals or spreadsheet errors?</label
+          >
+          <input type="number" min="1" max="5" placeholder="1-5" />
+        </div>
+
+        <h3>Fulfillment (Delivery of Value)</h3>
+        <div class="rating-row">
+          <label
+            >How seamlessly are physical goods or services handed off without
+            manual reconciliation delays?</label
+          >
+          <input type="number" min="1" max="5" placeholder="1-5" />
+        </div>
+
+        <h3>Revenue & Risk (Monetization)</h3>
+        <div class="rating-row">
+          <label
+            >Is revenue recognition strictly and automatically aligned with
+            proof of delivery/fulfillment?</label
+          >
+          <input type="number" min="1" max="5" placeholder="1-5" />
+        </div>
+
+        <h3>Change Model (Evolution)</h3>
+        <div class="rating-row">
+          <label
+            >How easily can the system handle post-signature order cancellations
+            or returns without manual finance intervention?</label
+          >
+          <input type="number" min="1" max="5" placeholder="1-5" />
+        </div>
+
+        <div class="grid-2" style="margin-top: 20px">
+          <div>
+            <label>Current Control (As-Is)</label>
+            <input type="text" placeholder="e.g., Manual ERP entry" />
+          </div>
+          <div>
+            <label>Target Control (To-Be)</label>
+            <input
+              type="text"
+              placeholder="e.g., Automated RLM Order tracking"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- SUBSCRIPTION -->
+      <section class="section-container">
+        <h2>2. Subscription / Recurring</h2>
+
+        <h3>Quote & Configuration (The Pitch)</h3>
+        <div class="rating-row">
+          <label
+            >How easily can sales configure complex subscription tiers, term
+            lengths, and standard discounts without leaving the CRM?</label
+          >
+          <input type="number" min="1" max="5" placeholder="1-5" />
+        </div>
+
+        <h3>Fulfillment (Delivery of Value)</h3>
+        <div class="rating-row">
+          <label
+            >Are digital entitlements and access provisioned instantly upon
+            contract execution?</label
+          >
+          <input type="number" min="1" max="5" placeholder="1-5" />
+        </div>
+
+        <h3>Revenue & Risk (Monetization)</h3>
+        <div class="rating-row">
+          <label
+            >How accurately does the system handle revenue recognition for
+            complex mid-term prorations?</label
+          >
+          <input type="number" min="1" max="5" placeholder="1-5" />
+        </div>
+
+        <h3>Change Model (Evolution)</h3>
+        <div class="rating-row">
+          <label
+            >Can sales reps seamlessly execute upgrades, downgrades, and
+            co-terms without creating duplicate assets?</label
+          >
+          <input type="number" min="1" max="5" placeholder="1-5" />
+        </div>
+
+        <div class="grid-2" style="margin-top: 20px">
+          <div>
+            <label>Current Control (As-Is)</label>
+            <input type="text" placeholder="e.g., Manual spreadsheet calcs" />
+          </div>
+          <div>
+            <label>Target Control (To-Be)</label>
+            <input type="text" placeholder="e.g., Salesforce CPQ Amendments" />
+          </div>
+        </div>
+      </section>
+
+      <!-- USAGE-BASED -->
+      <section class="section-container">
+        <h2>3. Usage-Based</h2>
+
+        <h3>Quote & Configuration (The Pitch)</h3>
+        <div class="rating-row">
+          <label
+            >How clearly are consumption tiers, base commitments, and overage
+            rates defined and agreed upon during the initial quote?</label
+          >
+          <input type="number" min="1" max="5" placeholder="1-5" />
+        </div>
+
+        <h3>Fulfillment (Delivery of Value)</h3>
+        <div class="rating-row">
+          <label
+            >How accurately is metered consumption tracked and mediated prior to
+            reaching the billing engine?</label
+          >
+          <input type="number" min="1" max="5" placeholder="1-5" />
+        </div>
+
+        <h3>Revenue & Risk (Monetization)</h3>
+        <div class="rating-row">
+          <label
+            >How often do you face billing restatements or disputes due to
+            inaccurate usage data?</label
+          >
+          <input type="number" min="1" max="5" placeholder="1-5" />
+        </div>
+
+        <h3>Change Model (Evolution)</h3>
+        <div class="rating-row">
+          <label
+            >How efficiently are mid-cycle adjustments to usage tiers, rates, or
+            overages processed?</label
+          >
+          <input type="number" min="1" max="5" placeholder="1-5" />
+        </div>
+
+        <div class="grid-2" style="margin-top: 20px">
+          <div>
+            <label>Current Control (As-Is)</label>
+            <input type="text" placeholder="Current system or process" />
+          </div>
+          <div>
+            <label>Target Control (To-Be)</label>
+            <input type="text" placeholder="Target system logic" />
+          </div>
+        </div>
+      </section>
+
+      <!-- MILESTONE / PROJECT-BASED -->
+      <section class="section-container">
+        <h2>4. Milestone / Project-Based</h2>
+
+        <h3>Quote & Configuration (The Pitch)</h3>
+        <div class="rating-row">
+          <label
+            >How accurately are complex project deliverables and customized
+            payment schedules scoped and priced in the initial quote?</label
+          >
+          <input type="number" min="1" max="5" placeholder="1-5" />
+        </div>
+
+        <h3>Fulfillment (Delivery of Value)</h3>
+        <div class="rating-row">
+          <label
+            >How well are project dependencies and handoffs tracked to trigger
+            partial stage completions?</label
+          >
+          <input type="number" min="1" max="5" placeholder="1-5" />
+        </div>
+
+        <h3>Revenue & Risk (Monetization)</h3>
+        <div class="rating-row">
+          <label
+            >Is revenue recognition strictly aligned with signed performance
+            obligations and milestone sign-offs?</label
+          >
+          <input type="number" min="1" max="5" placeholder="1-5" />
+        </div>
+
+        <h3>Change Model (Evolution)</h3>
+        <div class="rating-row">
+          <label
+            >How disruptive is scope creep or timeline adjustment to the
+            underlying revenue and delivery forecasts?</label
+          >
+          <input type="number" min="1" max="5" placeholder="1-5" />
+        </div>
+
+        <div class="grid-2" style="margin-top: 20px">
+          <div>
+            <label>Current Control (As-Is)</label>
+            <input type="text" placeholder="Current system or process" />
+          </div>
+          <div>
+            <label>Target Control (To-Be)</label>
+            <input type="text" placeholder="Target system logic" />
+          </div>
+        </div>
+      </section>
+    </form>
+  </body>
+</html>
