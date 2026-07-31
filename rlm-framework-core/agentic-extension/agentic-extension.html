@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARM Extension: Agentforce Revenue Management Framework</title>
+    <style>
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      h1 {
+        color: #1a73e8;
+        border-bottom: 2px solid #1a73e8;
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+      }
+      h2 {
+        color: #202124;
+        margin-top: 40px;
+        border-bottom: 1px solid #dadce0;
+        padding-bottom: 5px;
+      }
+      h3 {
+        color: #1a73e8;
+        margin-top: 25px;
+      }
+      p {
+        margin-bottom: 16px;
+      }
+      ul {
+        margin-bottom: 20px;
+        padding-left: 20px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      .intro-box {
+        background-color: #e8f0fe;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        border: 1px solid #aecbfa;
+        color: #1967d2;
+        font-weight: 500;
+      }
+      .section-box {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        border: 1px solid #dadce0;
+      }
+      .term-highlight {
+        font-weight: 600;
+        color: #d93025;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        margin-bottom: 30px;
+      }
+      th,
+      td {
+        border: 1px solid #dadce0;
+        padding: 12px;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        background-color: #f8f9fa;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Framework Extension: Agentforce Revenue Management (ARM) [Draft]</h1>
+
+    <div class="intro-box">
+      If traditional Revenue Cloud Advanced (RCA) is about building a
+      deterministic, high-speed rail system for your Quote-to-Cash process,
+      Agentforce Revenue Management (ARM) is about putting an autonomous,
+      probabilistic conductor in the engine room. This extension outlines the
+      methodological shift from static rules engines to Dynamic Revenue
+      Orchestration.
+    </div>
+
+    <!-- Add this directly below the .intro-box -->
+    <div
+      style="
+        margin-bottom: 40px;
+        padding: 20px;
+        border-left: 4px solid #1a73e8;
+        background-color: #f8f9fa;
+      "
+    >
+      <h3
+        style="
+          margin-top: 0;
+          color: #202124;
+          font-size: 16px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        "
+      >
+        Advanced Implementation Modules
+      </h3>
+      <ul style="list-style-type: none; padding-left: 0; margin-bottom: 0">
+        <li style="margin-bottom: 12px">
+          <a
+            href="headless-architecture.html"
+            style="
+              text-decoration: none;
+              color: #1a73e8;
+              font-weight: 600;
+              font-size: 16px;
+            "
+          >
+            &rarr; Headless 360 Architecture (PCM & Transaction APIs)
+          </a>
+        </li>
+        <li>
+          <a
+            href="context-service.html"
+            style="
+              text-decoration: none;
+              color: #1a73e8;
+              font-weight: 600;
+              font-size: 16px;
+            "
+          >
+            &rarr; Context Service Definitions & Data Mapping
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <p>
+      Designing for ARM requires abandoning the legacy CPQ mindset of
+      "if-this-then-that" configuration. Instead, the architecture focuses on
+      grounding AI agents in a composable catalog, defining strict execution
+      guardrails, and leveraging real-time data signals to drive autonomous
+      revenue operations.
+    </p>
+
+    <h2>Step 1: The Composable Catalog & Data Grounding</h2>
+    <p>
+      Agents cannot parse messy, customized legacy data models. Before
+      introducing Agentforce into the revenue lifecycle, the foundational
+      architecture must migrate to Salesforce's core API-first capabilities.
+      This step is about structuring data so the AI can read, reason, and act.
+    </p>
+
+    <div class="section-box">
+      <h3>Architectural Imperatives:</h3>
+      <ul>
+        <li>
+          <strong>Headless Commerce Readiness:</strong> Decouple the UI from the
+          pricing engine. Ensure the
+          <span class="term-highlight">Shared Product Catalog</span> and
+          <span class="term-highlight">Pricing Procedures</span> are fully
+          accessible via REST APIs so Agentforce can query standard pricing
+          dynamically without invoking legacy managed-package code.
+        </li>
+        <li>
+          <strong>Constraint-Based Configuration:</strong> Shift from
+          prescriptive selection rules (e.g., "Add Product B when Product A is
+          selected") to constraint-based modeling (e.g., "Product A requires a
+          power source"). This allows the Agent to autonomously construct valid
+          bundles based on buyer intent rather than rigid, pre-defined
+          click-paths.
+        </li>
+        <li>
+          <strong>RAG (Retrieval-Augmented Generation) Indexing:</strong>
+          Structure historical contract metadata, discount matrices, and SLA
+          policies into vector databases. This allows the Agent to contextualize
+          a current quote by retrieving past negotiated terms for similar
+          accounts.
+        </li>
+      </ul>
+    </div>
+
+    <h2>Step 2: Designing Dynamic Revenue Orchestration (DRO)</h2>
+    <p>
+      Traditional revenue architectures rely on static Advanced Approvals and
+      fixed Order Management workflows. ARM replaces this with
+      <span class="term-highlight">Dynamic Revenue Orchestration (DRO)</span>,
+      where fulfillment and provisioning workflows adjust in real-time based on
+      the intelligence gathered during the quoting and contracting phases.
+    </p>
+
+    <div class="section-box">
+      <h3>Architectural Imperatives:</h3>
+      <ul>
+        <li>
+          <strong>Event-Driven Triggers:</strong> Map external signals (e.g.,
+          ERP supply chain delays, PLM product deprecations, or billing system
+          credit holds) to standard Salesforce Platform Events. These events
+          wake the Agent to take corrective action on in-flight quotes or
+          orders.
+        </li>
+        <li>
+          <strong>Orchestration Step Design:</strong> Break down the
+          Quote-to-Order process into granular, composable invocable actions.
+          Instead of a rigid linear flow, design a library of actions (e.g.,
+          "Request Legal Review," "Hold Provisioning," "Split Order") that the
+          Agent can sequence dynamically based on the transaction's risk
+          profile.
+        </li>
+      </ul>
+    </div>
+
+    <h2>Step 3: Defining Purpose-Built Revenue Agents</h2>
+    <p>
+      You do not deploy a single monolithic AI. You deploy specialized,
+      context-aware agents across the Lead-to-Revenue lifecycle. In this step,
+      you define the specific operational boundaries and required actions for
+      each Agent.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Agent Persona</th>
+          <th>Trigger / Signal</th>
+          <th>Autonomous Action (Execution)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>The Conversational Quoting Agent</strong></td>
+          <td>
+            Sales rep inputs intent via prompt (e.g., "Build a quote for ACME
+            for 500 enterprise seats, standard support, co-termed to their
+            existing contract.")
+          </td>
+          <td>
+            Queries the Shared Catalog, executes the Pricing Procedure,
+            calculates pro-ration, and generates the Draft Quote autonomously.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>The Margin & Discount Agent</strong></td>
+          <td>
+            A proposed quote breaches standard margin floors or requests
+            non-standard payment terms.
+          </td>
+          <td>
+            Analyzes historical win-rates for similar discounts, queries current
+            account health, and autonomously suggests a compromise (e.g., "Offer
+            15% discount if they commit to Net-30 instead of Net-90").
+          </td>
+        </tr>
+        <tr>
+          <td><strong>The ALM (Asset Lifecycle) Renewal Agent</strong></td>
+          <td>
+            Telemetry data indicates a customer is approaching their API limit
+            or storage cap 4 months before renewal.
+          </td>
+          <td>
+            Triggers an early amendment, calculates usage-based true-up pricing,
+            and drafts a proactive upsell quote for the Account Executive to
+            review.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>The Contract Reconciliation Agent</strong></td>
+          <td>Redlined MSWord document is uploaded to the Contract object.</td>
+          <td>
+            Uses generative AI to scan for non-standard liability clauses,
+            compares them against the approved legal library via RAG, and flags
+            high-risk terms directly to the Legal team's queue.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Step 4: The Trust Layer (Guardrails and Human Handoffs)</h2>
+    <p>
+      The success of ARM relies entirely on business trust. An unchecked agent
+      can hemorrhage margin or generate unfulfillable orders. This step defines
+      the exact thresholds where autonomous execution stops and human
+      orchestration begins.
+    </p>
+
+    <div class="section-box">
+      <h3>Architectural Imperatives:</h3>
+      <ul>
+        <li>
+          <strong>The Einstein Trust Layer Configuration:</strong> Define data
+          masking policies to ensure PII, proprietary pricing algorithms, and
+          unreleased product data are not leaked into external LLM prompts.
+        </li>
+        <li>
+          <strong>Hard Escalation Thresholds:</strong> Program strict boolean
+          logic that overrides agent autonomy. (e.g., "If Total Contract Value >
+          $500k OR Discount > 25%, Agent execution halts and routes to VP of
+          Sales via standard Omni-Channel routing").
+        </li>
+        <li>
+          <strong>The Human-in-the-Loop (HITL) UI:</strong> Design the exact
+          Lightning Record Pages and Slack alerts where the Agent surfaces its
+          reasoning. The UI must clearly display <em>why</em> the Agent
+          recommends a specific price or contract clause, allowing the human to
+          confidently click "Approve" or "Reject."
+        </li>
+      </ul>
+    </div>
+
+    <h2>Step 5: Telemetry and Continuous Agent Tuning</h2>
+    <p>
+      Unlike static CPQ implementations which are "set and forget" until the
+      next release cycle, an ARM deployment is a living ecosystem. The final
+      step of the framework establishes the feedback loops required to measure
+      agent efficacy.
+    </p>
+
+    <ul>
+      <li>
+        <strong>Agent Deflection Rate:</strong> Measure how many quotes,
+        amendments, and renewals were processed start-to-finish without human
+        intervention.
+      </li>
+      <li>
+        <strong>Resolution Time Compression:</strong> Track the reduction in
+        Quote-to-Cash cycle times compared to the legacy manual approval
+        processes.
+      </li>
+      <li>
+        <strong>Prompt & Action Refinement:</strong> Establish a monthly
+        governance board where Solutions Architects and Business Heads review
+        rejected Agent recommendations to refine the underlying prompts,
+        constraints, and data models.
+      </li>
+    </ul>
+  </body>
+</html>
