@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Commercial-First RLM Agile Approach</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+        background-color: #f8fafc;
+      }
+
+      /* Page Title Styles */
+      .page-header {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+        border-top: 4px solid #007eb5;
+      }
+      .page-header h1 {
+        font-size: 2rem;
+        color: #1a1f36;
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .page-header p {
+        color: #4a5568;
+        font-size: 1.05rem;
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      /* Content Sections */
+      .section-container {
+        background-color: #ffffff;
+        padding: 35px;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+      }
+      h2 {
+        font-size: 1.5rem;
+        color: #1a1f36;
+        border-bottom: 2px solid #f1f5f9;
+        padding-bottom: 10px;
+        margin-top: 0;
+      }
+      h3 {
+        font-size: 1.2rem;
+        color: #0f766e;
+        margin-top: 25px;
+      }
+      p,
+      li {
+        font-size: 1rem;
+        color: #4a5568;
+        line-height: 1.6;
+      }
+      ul,
+      ol {
+        margin-top: 10px;
+      }
+
+      /* Callouts */
+      .callout {
+        background-color: #f0fdf4;
+        border-left: 4px solid #16a34a;
+        padding: 15px 20px;
+        margin: 20px 0;
+        border-radius: 0 4px 4px 0;
+      }
+      .callout p {
+        margin: 0;
+        color: #166534;
+      }
+
+      /* Tables */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: #ffffff;
+      }
+      th {
+        background-color: #f8fafc;
+        color: #1a1f36;
+        font-weight: 700;
+        text-align: left;
+        padding: 12px 15px;
+        border: 1px solid #e2e8f0;
+      }
+      td {
+        padding: 12px 15px;
+        border: 1px solid #e2e8f0;
+        color: #4a5568;
+        vertical-align: top;
+      }
+
+      /* Grids */
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 20px;
+      }
+      .team-badge {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        background-color: #e2e8f0;
+        color: #334155;
+        padding: 2px 8px;
+        border-radius: 12px;
+        margin-left: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>Empower BA</h1>
+      <p></p>
+    </header>
+
+    <!-- section: The Architect's "Cheat Sheet" for BAs -->
+    <section class="section-container">
+      <h2>The Architect's "Cheat Sheet" for BAs</h2>
+      <p>
+        Your Business Analysts (BAs) need to write Acceptance Criteria (L5) that
+        actively prevent developers from slipping back into bad habits. Here are
+        the rules to mandate Revenue Cloud best practices:
+      </p>
+
+      <ul>
+        <li>
+          <strong>1. The "No Dead Ends" Rule (Mandate the Transaction):</strong>
+          A developer cannot write a story to simply "create a product field".
+          <br /><em>Bad AC:</em> "The 'Hardware Type' field is visible on the
+          Product record". <br /><em>RLM-Ready AC:</em>
+          "The 'Hardware Type' field is visible on the Product record AND
+          correctly maps to the Quote Line Item when added to a Standard Quote".
+        </li>
+        <li style="margin-top: 15px">
+          <strong>2. The "Engine Callout" Rule (Name the Component):</strong>
+          BAs must specifically name the RLM component that handles the math
+          logic. <br /><em>Bad AC:</em> "The system should apply a 10% discount
+          for volume". <br /><em>RLM-Ready AC:</em> "The Pricing Procedure
+          evaluates the volume quantity and correctly generates the Net Price on
+          the Price Waterfall".
+        </li>
+        <li style="margin-top: 15px">
+          <strong>3. The "Downstream Proof" Rule (The Lifecycle Check):</strong>
+          Every subscription story must prove it can survive beyond the initial
+          sale to prevent the "Siloed Sprint" trap. <br /><em>Bad AC:</em> "The
+          user can sell a 12-month software license". <br /><em
+            >RLM-Ready AC:</em
+          >
+          "The 12-month software license successfully converts from a Sales
+          Order into an Asset-trackable record with the correct start and end
+          dates for future renewals".
+        </li>
+      </ul>
+
+      <div class="callout">
+        <p>
+          <strong>Empowering the BA:</strong> By giving your BAs this framework,
+          they become the gatekeepers. If a BA writes a story that doesn't push
+          data through to an Order or Asset, the Scrum Master will kick it back
+          during backlog refinement because it fails the Definition of Ready.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION: DEFINITION OF DONE & DATA FLOW -->
+    <section class="section-container">
+      <h2>Architecture: Data Model vs. Process Flow</h2>
+      <p>
+        In standard design frameworks, the Business Process Model (the sequence
+        of events) and the Data Architecture (the structural schema) are
+        distinct but parallel views. However, in RLM, the
+        <strong>Data Model drives the Process</strong>.
+      </p>
+
+      <h3>The "Future-Proof" Definition of Done (DoD)</h3>
+      <p>
+        A Product is not "Done" just because it exists in the Catalog; it is
+        only "Done" when it can survive the Commercial Journey. If developers
+        push back citing "velocity," remind them that closing 50 fragment
+        stories that fail in a Quote is "False Velocity".
+      </p>
+      <ul>
+        <li>
+          <strong>Commercial Identity:</strong> A Product Selling Model (PSM)
+          must be assigned, and lifecycle categorization must be flagged.
+        </li>
+        <li>
+          <strong>Transactional Pricing:</strong> The product must be tested
+          against a Pricing Procedure, with Waterfall validation for
+          discounts/taxes.
+        </li>
+        <li>
+          <strong>Quote-to-Order Flow:</strong> The product must generate a
+          valid Quote Line Item and successfully convert into a Sales Order.
+        </li>
+        <li>
+          <strong>Stakeholder Sign-off:</strong> Finance/Billing must confirm
+          the resulting Order Data contains necessary fields for Invoicing[cite.
+        </li>
+      </ul>
+
+      <h3>The RLM "Revenue DNA" Data Flow</h3>
+      <p>
+        Product Selling Model and Attributes are the "DNA" of the entire revenue
+        lifecycle. If you get the Product "Foundation" wrong in Sprint 1, the
+        Invoice in Sprint 10 literally cannot be generated.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Stage</th>
+            <th>Data Element</th>
+            <th>RLM Object / Engine</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1. Catalog</td>
+            <td>Product Selling Model (PSM)</td>
+            <td>ProductSellingModel</td>
+            <td>Defines the "Contractual Intent" (e.g., 12-month Termed).</td>
+          </tr>
+          <tr>
+            <td>2. Discovery</td>
+            <td>Commercial Attributes</td>
+            <td>ProductAttribute</td>
+            <td>Captures "Sales Choices" (e.g., Service Tier: Gold).</td>
+          </tr>
+          <tr>
+            <td>3. Pricing</td>
+            <td>Pricing Procedure</td>
+            <td>PricingProcedure</td>
+            <td>Uses PSM to decide: List Price x Quantity x Term.</td>
+          </tr>
+          <tr>
+            <td>4. Quote</td>
+            <td>Quote Line Item</td>
+            <td>QuoteLineItem</td>
+            <td>Stores the "Point-in-Time" agreement and Proration math.</td>
+          </tr>
+          <tr>
+            <td>5. Order</td>
+            <td>Sales Order</td>
+            <td>SalesOrder</td>
+            <td>The "Legal Commitment." Maps Attributes to provisioning.</td>
+          </tr>
+          <tr>
+            <td>6. Asset</td>
+            <td>Lifecycle Managed Asset</td>
+            <td>AssetStatePeriod</td>
+            <td>Tracks the "Current State" for Amendments/Renewals.</td>
+          </tr>
+          <tr>
+            <td>7. Finance</td>
+            <td>Billing Schedule</td>
+            <td>BillingSchedule</td>
+            <td>Converts the PSM + Term into actual payment dates.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <p>
+          <strong>The "Practical Architect" Takeaway:</strong> In RLM,
+          Attributes and Selling Models are not "details" to be added later;
+          they are the Configuration Instructions for the automated engines that
+          follow. Building a Product without a Selling Model is like building a
+          car without an engine—it looks like a car, but it won't take the
+          customer anywhere.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION: TRANSFORMATION ROADMAP -->
+    <section class="section-container">
+      <h2>The RLM Transformation Build Roadmap</h2>
+
+      <!-- Stage 1: Commercial Logic -->
+      <h3>1. Commercial Logic & Order Orchestration</h3>
+      <p>
+        <strong>Commercial Focus:</strong> Moving beyond "config" to engineer
+        high-performance pricing math via BRE and automating the "Middle Office"
+        (Approvals/DRO) via Flow and OmniStudio.
+      </p>
+      <div class="grid-2">
+        <div>
+          <strong>Product & Pricing Engineering</strong>
+          <ul>
+            <li>
+              Advanced Catalog (PCM): Configure complex Product Bundles, Nested
+              Options, and Attributes.
+            </li>
+            <li>
+              Pricing Logic (BRE): Build Decision Tables for Global Price Books
+              and Tiered Discounts. <span class="team-badge">DEV</span>
+            </li>
+            <li>
+              Price Rules: Use BRE Expression Sets to automate surcharges and
+              dynamic calculations. <span class="team-badge">DEV</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <strong>Quote, Approvals & DRO</strong>
+          <ul>
+            <li>
+              Quote Orchestration: Customize Transaction Line Editor (TLE) for
+              hybrid deal views.
+            </li>
+            <li>
+              Advanced Approvals: Deploy Salesforce Flows for multi-step margin
+              guardrails. <span class="team-badge">DEV</span>
+            </li>
+            <li>
+              DRO Decomposition: Design rules to split Orders into
+              Hardware/Software fulfillment.
+              <span class="team-badge">DEV</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 30px 0" />
+
+      <!-- Stage 2: Financial Realization -->
+      <h3>2. Financial Realization & Lifecycle Integrity</h3>
+      <p>
+        <strong>Financial Focus:</strong> Engineering the "Back-Office
+        Handshake" using Flow and OmniStudio to ensure every commercial promise
+        becomes a GAAP-compliant dollar.
+      </p>
+      <div class="grid-2">
+        <div>
+          <strong>Asset Lifecycle (ALM) & Billing</strong>
+          <ul>
+            <li>
+              Assetization: Engineer Flows to transition Orders into active
+              Subscriptions/Assets. <span class="team-badge">DEV</span>
+            </li>
+            <li>
+              Billing Automation: Configure Billing Treatments and Usage Rating
+              Triggers. <span class="team-badge">DEV</span>
+            </li>
+            <li>
+              Lifecycle Logic: Build "Amend/Renew" logic to maintain the "Golden
+              Thread". <span class="team-badge">DEV</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <strong>RevRec, Payments & GL</strong>
+          <ul>
+            <li>
+              Revenue Realization: Map ASC 606/IFRS 15 schedules based on
+              fulfillment triggers.
+            </li>
+            <li>
+              Payment Handshake: Build Integration Procedures for Gateways and
+              Tax Engines. <span class="team-badge">DEV</span>
+            </li>
+            <li>
+              General Ledger Sync: Finalize GL mapping for ERP ingestion[cite:
+              2]. <span class="team-badge">DEV</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 30px 0" />
+
+      <!-- Stage 3: Production -->
+      <h3>3. Validation, Agentforce & Value Realization</h3>
+      <div class="grid-2">
+        <div>
+          <strong>Integrity Testing & UAT</strong>
+          <ul>
+            <li>
+              E2E Validation: "Golden Deal" audit from initial Quote to final
+              Revenue Posting.
+            </li>
+            <li>
+              Stress Testing: Validate proration logic on complex mid-term
+              cancellations.
+            </li>
+          </ul>
+        </div>
+        <div>
+          <strong>Agentic Innovation & Launch</strong>
+          <ul>
+            <li>
+              Agentforce Deployment: Deploy Proactive Retention and Billing
+              Anomaly agents. <span class="team-badge">DEV</span>
+            </li>
+            <li>
+              Production Cutover: Final legacy TCV reconciliation and hypercare
+              kickoff.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
