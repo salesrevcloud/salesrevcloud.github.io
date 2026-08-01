@@ -126,28 +126,28 @@
         text-align: center;
         font-size: 1.8rem;
         font-weight: 600;
-        margin-bottom: 35px;
+        margin-bottom: 15px;
         color: #166082;
       }
       .section-heading-dark {
         text-align: center;
         font-size: 1.8rem;
         font-weight: 600;
-        margin-bottom: 35px;
+        margin-bottom: 15px;
         color: #0f172a;
       }
       .section-heading-dark-sm {
         text-align: center;
         font-size: 1.8rem;
         font-weight: 600;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         color: #0f172a;
       }
       .section-heading-blue-mt {
         text-align: center;
         font-size: 1.8rem;
         font-weight: 600;
-        margin-top: 35px;
+        margin-top: 15px;
         color: #166082;
       }
 
@@ -259,7 +259,7 @@
       .transition-hr {
         border: 0;
         border-top: 1px solid #e0e0e0;
-        margin: 60px 0 30px 0;
+        margin: 30px 0 15px 0;
       }
       .transition-text {
         text-align: center;
@@ -295,7 +295,51 @@
       .mt-20 {
         margin-top: 20px;
       }
+      /* --- Academic Articles Section --- */
+      .academic-card {
+        padding: 16px 0;
+        border-bottom: 1px solid #eaeaea;
+        margin-bottom: 8px;
+      }
 
+      /* Removes the border from the very last item so it doesn't look unfinished */
+      .academic-card:last-child {
+        border-bottom: none;
+      }
+
+      .academic-category {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #666666; /* Neutral dark gray */
+        color: #0066cc;
+        margin-bottom: 6px;
+      }
+
+      .academic-desc {
+        margin: 0 0 10px 0;
+        font-size: 1.05rem;
+        color: #333333;
+        line-height: 1.6;
+      }
+
+      .academic-link {
+        display: inline-flex;
+        align-items: center;
+        color: #1a1a1a;
+        font-weight: 600;
+        text-decoration: underline;
+        text-decoration-color: #cccccc;
+        text-underline-offset: 4px;
+        font-size: 1rem;
+        transition: text-decoration-color 0.2s ease;
+      }
+
+      .academic-link:hover {
+        text-decoration-color: #1a1a1a;
+      }
       /* --- The Trifecta Section --- */
       .trifecta-wrapper {
         max-width: 1050px;
@@ -451,7 +495,7 @@
       <div class="menu">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="#profile">Profile</a>
+            <a class="nav-link" href="#profile">Let's Connect</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#written">Articles</a>
@@ -460,7 +504,7 @@
             <a class="nav-link" href="#worked">Experience</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#uphill">More</a>
+            <a class="nav-link" href="#more">More</a>
           </li>
         </ul>
       </div>
@@ -492,9 +536,9 @@
       <h3 class="section-heading-blue">Connect With Me</h3>
 
       <p>
-        A living archive where I share, architectural insights from my active
-        projects, document continuous learning, and open-source the knowledge
-        I’ve gathered along the way. Let’s connect across these platforms:
+        Whether you want to talk shop about Revenue Cloud architecture, discuss
+        a complex CPQ integration, migrations or explore potential consulting
+        engagements, I’m always open to a conversation. Let’s connect:
         <br /><br />
       </p>
 
@@ -545,77 +589,83 @@
     <section class="contentsection" id="written">
       <div class="articles-wrapper">
         <h3 class="section-heading-dark">My Articles and Frameworks</h3>
+        <p>
+          Over the years of architecting quote-to-cash systems, I've learned
+          that standard playbooks often fall short. These articles and
+          frameworks capture the practical methodologies and hard-won lessons I
+          use to solve real-world revenue transformation challenges.
+        </p>
 
         <div class="articles-list">
           <!-- Item 1 -->
-          <div class="article-card border-blue">
-            <span class="article-category text-blue">
+          <div class="academic-card">
+            <span class="academic-category">
               RLM Implementation Framework Core v1.0
             </span>
-            <p class="article-desc">
+            <p class="academic-desc">
               Revenue Lifecycle Management Core, Guided Implementation
             </p>
             <a
               href="rlm-framework-core/index.html"
               target="_blank"
               rel="noopener noreferrer"
-              class="article-link"
+              class="academic-link"
             >
-              📘 RLM Guided Implementation
+              RLM Guided for Rapid and Successful Implementation
             </a>
           </div>
 
           <!-- Item 2 -->
-          <div class="article-card border-purple">
-            <span class="article-category text-purple">
+          <div class="academic-card">
+            <span class="academic-category">
               Agent Extension to the Core Framework [Draft]
             </span>
-            <p class="article-desc">
+            <p class="academic-desc">
               How agentic AI is reshaping revenue and enterprise architecture.
             </p>
             <a
               href="rlm-framework-core/agentic-ext/agentic-ext.html"
               target="_blank"
               rel="noopener noreferrer"
-              class="article-link"
+              class="academic-link"
             >
-              🤖 Agent First RLM Framework
+              Agent First RLM Framework Extension to the Above Core
             </a>
           </div>
 
           <!-- Item 3 -->
-          <div class="article-card border-green">
-            <span class="article-category text-green">
-              Enterprise Architecture
-            </span>
-            <p class="article-desc">
+          <div class="academic-card">
+            <span class="academic-category">
+              Enterprise Architecture (Lessons Learned)</span
+            >
+            <p class="academic-desc">
               Principles that stand the test of changing technologies.
             </p>
             <a
               href="https://www.linkedin.com/posts/rgandavarapu_hi-everyone-im-excited-to-share-my-latest-ugcPost-7353901882781696000-zeem/"
               target="_blank"
               rel="noopener noreferrer"
-              class="article-link"
+              class="academic-link"
             >
-              📘 7 Hard Truths In Enterprise Architecture
+              Seven Hard Truths In Enterprise Architecture
             </a>
           </div>
 
           <!-- Item 4 -->
-          <div class="article-card border-blue">
-            <span class="article-category text-blue">
-              Revenue Transformation
+          <div class="academic-card">
+            <span class="academic-category">
+              Revenue Transformation - Observations
             </span>
-            <p class="article-desc">
+            <p class="academic-desc">
               Strategies that connect business vision with execution.
             </p>
             <a
               href="https://www.linkedin.com/posts/rgandavarapu_revenuecloud-playbook-quotetocash-ugcPost-7353077126805213184-NTPI/"
               target="_blank"
               rel="noopener noreferrer"
-              class="article-link"
+              class="academic-link"
             >
-              📗 Revenue Cloud Playbook For Scale
+              Revenue Cloud Playbook For Scale
             </a>
           </div>
         </div>
@@ -632,6 +682,7 @@
         </p>
       </div>
     </section>
+    <hr class="transition-hr" id="observed" />
 
     <!-- Companies Worked With -->
     <section class="contentsection" id="worked">
@@ -670,7 +721,7 @@
       </div>
     </section>
 
-    <hr class="transition-hr" />
+    <hr class="transition-hr" id="more" />
     <p class="transition-text">
       While the links above point to specific writings, the following sections
       explore the broader operational friction points I observe in revenue
