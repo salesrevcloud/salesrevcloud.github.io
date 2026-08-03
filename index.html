@@ -7,7 +7,7 @@
 
     <!--  description -->
     <meta name="description" content="SalesRevCloud - Ravi Gandavarapu" />
-    <meta name="author" content="SyntroFin" />
+    <meta name="author" content="SalesRevCloud" />
 
     <meta property="og:url" content="http://www.salesrevcloud.com" />
     <meta
@@ -23,33 +23,33 @@
     <link
       rel="icon"
       type="image/x-icon"
-      href="./syntrofin_files/favicon/favicon.ico?v=2"
+      href="./salesrev_files/favicon/favicon.ico?v=2"
     />
     <link
       rel="shortcut icon"
       type="image/x-icon"
-      href="./syntrofin_files/favicon/favicon.ico?v=2"
+      href="./salesrev_files/favicon/favicon.ico?v=2"
     />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="./syntrofin_files/apple-touch-icon.png"
+      href="./salesrev_files/apple-touch-icon.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./syntrofin_files/favicon/favicon-32x32.png"
+      href="./salesrev_files/favicon/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="./syntrofin_files/favicon/favicon-16x16.png"
+      href="./salesrev_files/favicon/favicon-16x16.png"
     />
 
     <!-- CSS -->
-    <link href="./syntrofin.css" rel="stylesheet" />
+    <link href="./salesrev.css" rel="stylesheet" />
     <style>
       /* --- Global Typography & Body --- */
       body {
@@ -476,6 +476,31 @@
         color: #0066cc;
         text-decoration: underline;
       }
+      .highlight-half {
+        background-image: linear-gradient(to right, #fef08a, #fde047);
+        background-repeat: no-repeat;
+        background-size: 100% 40%; /* Keeps the highlight on the bottom half */
+        background-position: 0 88%; /* Aligns it perfectly under the text */
+        display: inline-block;
+        padding: 0 4px; /* Gives just a tiny bit of breathing room on the edges */
+      }
+      .category-header-wrapper {
+        display: flex;
+        align-items: center; /* Vertically centers the text and badge */
+        gap: 10px; /* Space between the title and the badge */
+        margin-bottom: 8px; /* Optional spacing under the header row */
+      }
+
+      .badge-featured {
+        background-color: #fef08a;
+        color: #854d0e;
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 3px 8px;
+        border-radius: 12px;
+        letter-spacing: 0.5px;
+        white-space: nowrap; /* Ensures the badge text never wraps */
+      }
     </style>
   </head>
 
@@ -524,7 +549,7 @@
         <div class="banner-image bg-aliceblue">
           <img
             alt=""
-            src="./syntrofin_files/img/certs.png"
+            src="./salesrev_files/img/certs.png"
             class="banner-img-fluid"
           />
         </div>
@@ -599,9 +624,12 @@
         <div class="articles-list">
           <!-- Item 1 -->
           <div class="academic-card">
-            <span class="academic-category">
-              RLM Implementation Framework Core v1.0
-            </span>
+            <div class="category-header-wrapper">
+              <span class="academic-category">
+                RLM Implementation Framework Core v1.0
+              </span>
+              <span class="badge-featured">FEATURED</span>
+            </div>
             <p class="academic-desc">
               Revenue Lifecycle Management Core, Guided Implementation
             </p>
@@ -692,31 +720,31 @@
       <div class="grid-container">
         <div class="grid-item">
           <div class="logo-text">ATS Life Sciences</div>
-          <img src="syntrofin_files/img/at.png" alt="ATS Logo" />
+          <img src="salesrev_files/img/at.png" alt="ATS Logo" />
         </div>
         <div class="grid-item">
           <div class="logo-text">Clarivate</div>
-          <img src="syntrofin_files/img/cl.png" alt="Clarivate Logo" />
+          <img src="salesrev_files/img/cl.png" alt="Clarivate Logo" />
         </div>
         <div class="grid-item">
           <div class="logo-text">Trimble</div>
-          <img src="syntrofin_files/img/tr.png" alt="Trimble Logo" />
+          <img src="salesrev_files/img/tr.png" alt="Trimble Logo" />
         </div>
         <div class="grid-item">
           <div class="logo-text">Iron Mountain</div>
-          <img src="syntrofin_files/img/im.png" alt="Iron Mountain Logo" />
+          <img src="salesrev_files/img/im.png" alt="Iron Mountain Logo" />
         </div>
         <div class="grid-item">
           <div class="logo-text">Komatsu</div>
-          <img src="syntrofin_files/img/km.png" alt="Komatsu Logo" />
+          <img src="salesrev_files/img/km.png" alt="Komatsu Logo" />
         </div>
         <div class="grid-item">
           <div class="logo-text">Pure</div>
-          <img src="syntrofin_files/img/pu.png" alt="Pure Logo" />
+          <img src="salesrev_files/img/pu.png" alt="Pure Logo" />
         </div>
         <div class="grid-item">
           <div class="logo-text">Extreme Networks</div>
-          <img src="syntrofin_files/img/ex.png" alt="Extreme Networks Logo" />
+          <img src="salesrev_files/img/ex.png" alt="Extreme Networks Logo" />
         </div>
       </div>
     </section>
@@ -759,7 +787,7 @@
         </div>
         <div class="diagnosys-column-center">
           <img
-            src="./syntrofin_files/img/obs.png"
+            src="./salesrev_files/img/obs.png"
             alt="small entrance"
             class="diagnosys-image"
           />
