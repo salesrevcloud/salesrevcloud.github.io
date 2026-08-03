@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Dark Blue Background (Optional: remove this line for a transparent background) -->
+  <rect width="64" height="64" rx="12" fill="#ffffff" />
+  
+  <!-- Yellow Highlighter Accent (Matches your CSS gradient colors) -->
+  <rect x="12" y="44" width="40" height="8" fill="#fde047" />
+  
+  <!-- The "SR" Monogram in Dark Blue -->
+  <text x="50%" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="28" font-weight="900" fill="#0f172a" text-anchor="middle" letter-spacing="-1">
+    SR
+  </text>
+</svg>
